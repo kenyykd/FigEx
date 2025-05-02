@@ -54,7 +54,7 @@
 
     將你的本地分支上的提交推送到遠端倉庫的對應分支。
 
-    ```bash
+    ```
     git push -u origin [你的分支名稱]
     ```
 
@@ -62,6 +62,13 @@
     - `-u origin [你的分支名稱]` 通常只需要在**第一次**推送該分支時使用。它會設定你的本地分支追蹤 `origin` 這個遠端倉庫上的同名分支。
     - 之後，如果你在同一個分支上繼續工作並提交變更，可以直接使用 `git push` 將變更推送到遠端。
 
+常常使用 git pull (從主幹獲取最新)： 在開始新的工作或建立新分支之前，建議先切換回 main (或 master) 分支，然後執行 git pull origin main (或 git pull origin master)，確保你的本地主幹是最新的，這樣你從最新的主幹建立分支，可以減少未來合併的衝突。
+Bash
+ ```
+git checkout main
+git pull origin main
+git checkout [你的分支名稱]
+ ```
 ---
 
 完成以上步驟後，你的變更就會被推送到遠端倉庫的個人分支上。接下來，通常會建立一個 Pull Request (或 Merge Request) 來請求將你的分支合併到主分支或開發分支。
