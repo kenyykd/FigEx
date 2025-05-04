@@ -1,26 +1,30 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import globals from 'globals'
-import js from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import js from "@eslint/js";
+import globals from "globals";
+import pluginVue from "eslint-plugin-vue";
+import json from "@eslint/json";
+import { defineConfig } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
   {
-    name: 'app/files-to-lint',
-    files: ['**/*.{js,mjs,jsx,vue}'],
-  },
-
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
-
-  {
+    files: ["**/*.{js,mjs,cjs,vue}"],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
+      globals: globals.browser,
+    },
+    plugins: {
+      vue: pluginVue,
+    },
+    extends: [
+      js.configs.recommended,
+      pluginVue.configs["flat/recommended"], // Vue 3 專用 flat config
+    ],
+    rules: {
+      "no-unused-vars": "warn",
+      "no-undef": "warn",
+      "no-console": "warn",
+      quotes: ["error", "single"], // 強制使用單引號
     },
   },
-
-  js.configs.recommended,
-  ...pluginVue.configs['flat/essential'],
-  skipFormatting,
-])
+  { files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
+  eslintConfigPrettier,
+]);
