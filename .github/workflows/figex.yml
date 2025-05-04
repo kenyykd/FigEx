@@ -1,1 +1,8 @@
 on:push
+job1:
+  setps:
+    -run :pwd
+    -run:ls
+job2:
+  steps:
+    -run: node --version 
