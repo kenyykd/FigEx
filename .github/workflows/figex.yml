@@ -2,9 +2,9 @@ on:push
 
 jobs:
   job1:
-      setps:
-        -run: pwd
-        -run: ls
+    setps:
+    -run: pwd
+    -run: ls
   job2:
-      steps:
-       -run: node --version 
+    steps:
+    -run: node --version 
