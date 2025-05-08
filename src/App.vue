@@ -1,6 +1,10 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+const a = 2;
+if (true {
+  console.log('missing parenthesis');
+}
 </script>
 
 <template>
