@@ -7,8 +7,8 @@
         <nav class="main-nav">
           <ul>
             <li class="dropdown" v-for="item in categories" :key="item.name">
-              <a href="#">{{ item.name }}</a>
-              <ul class="sub-menu">
+              <a href="#">{{ item.title }}</a>
+              <ul class="sub-menu" v-if="item.sub?.length">
                 <li v-for="sub in item.sub" :key="sub"><a href="#">{{ sub }}</a></li>
               </ul>
             </li>
@@ -46,11 +46,11 @@
 
 <script setup>
 const categories = [
-  { name: '模型', sub: ['子項 1-1', '子項 1-2'] },
-  { name: '公仔', sub: ['子項 2-1', '子項 2-2'] },
-  { name: '玩偶', sub: ['子項 3-1', '子項 3-2'] },
-  { name: '景品', sub: ['子項 4-1', '子項 4-2'] },
-  { name: '總分類', sub: ['子項 5-1', '子項 5-2'] }
+  { title: '模型', sub: ['子項 1-1', '子項 1-2'] },
+  { title: '公仔', sub: ['子項 2-1', '子項 2-2'] },
+  { title: '玩偶', sub: ['子項 3-1', '子項 3-2'] },
+  { title: '景品', sub: ['子項 4-1', '子項 4-2'] },
+  { title: '總分類', sub: ['子項 5-1', '子項 5-2'] }
 ]
 </script>
 
@@ -111,7 +111,8 @@ body {
 
 .sub-menu {
   position: absolute;
-  top: calc(100% + 1.72rem);
+  top: 3.15rem;
+  margin-top: 0.5rem;
   left: 0;
   background-color: white;
   overflow: hidden;
