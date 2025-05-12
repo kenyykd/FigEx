@@ -56,13 +56,14 @@ const categories = [
 
 <style scoped>
 
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
 
 .site-header {
-  background-color: #52C197;
+  background-color: #4c4c4c;
   color: white;
   padding: 0.5rem;
   height: 50px;
@@ -74,8 +75,8 @@ body {
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* ✅ 加上這行讓垂直置中 */
-  flex-wrap: nowrap;   /* ✅ 禁止換行，全部塞一行 */
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .left {
@@ -98,7 +99,7 @@ body {
 }
 
 .main-nav a {
-  color: black;
+  color: white;
   text-decoration: none;
   position: relative;
   padding: 0.2rem;
@@ -122,12 +123,12 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 120px;
-  padding: 0; /* 收起時不留空間 */
+  padding: 0;
   z-index: 10;
 }
 
 .dropdown:hover .sub-menu {
-  max-height: 300px;  /* 足夠容納所有子選單 */
+  max-height: 300px;
   opacity: 1;
   padding: 0.5rem 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -164,7 +165,7 @@ body {
 
 /* 右側按鈕 */
 .right a {
-  color: black;
+  color: white;
   text-decoration: none;
   margin-left: 0.6rem;
 }
